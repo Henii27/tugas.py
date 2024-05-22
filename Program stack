@@ -1,0 +1,56 @@
+def push(stack, file_name):
+  """Menambahkan file berkas ke tumpukan (laci)."""
+  if not stack:
+    print("Laci kosong. Menambahkan file", file_name)
+    stack.append(file_name)
+  else:
+    print("Menambahkan file", file_name, "di atas", stack[-1])
+    stack.append(file_name)
+
+def pop(stack):
+  """Mengeluarkan file berkas teratas dari tumpukan (laci)."""
+  if not stack:
+    print("Laci kosong. Tidak ada file yang bisa dikeluarkan.")
+  else:
+    file_name = stack.pop()
+    print("Mengeluarkan file", file_name)
+
+def peek(stack):
+  """Melihat file berkas teratas tanpa mengeluarkannya dari tumpukan (laci)."""
+  if not stack:
+    print("Laci kosong. Tidak ada file yang bisa dilihat.")
+  else:
+    file_name = stack[-1]
+    print("File teratas:", file_name)
+
+def is_empty(stack):
+  """Memeriksa apakah tumpukan (laci) kosong."""
+  return not stack
+
+def main():
+  """Memulai program simulasi tumpukan file berkas."""
+  stack = []
+  while True:
+    print("\nPilihan:")
+    print("1. Push (Menambahkan file)")
+    print("2. Pop (Mengeluarkan file)")
+    print("3. Peek (Melihat file teratas)")
+    print("4. Exit (Keluar)")
+
+    choice = input("Masukkan pilihan Anda: ")
+
+    if choice == '1':
+      file_name = input("Nama file: ")
+      push(stack, file_name)
+    elif choice == '2':
+      pop(stack)
+    elif choice == '3':
+      peek(stack)
+    elif choice == '4':
+      print("Terima kasih telah menggunakan Simulasi Tumpukan File Berkas!")
+      break
+    else:
+      print("Pilihan tidak valid. Silakan coba lagi.")
+
+if __name__ == "__main__":
+  main()
